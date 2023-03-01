@@ -7,7 +7,6 @@ body {
 }
 
 .email-box table {
-    color: black;
     background-color: rgb(241, 170, 170);
     border-radius: 10px;
     margin-bottom: 10px;
@@ -17,6 +16,6 @@ body {
     background-color: lightpink;
 }
 
-.email-box tr {
-    margin-block-start: 30px;
+.email-box td {
+    padding: 10px;
 }
