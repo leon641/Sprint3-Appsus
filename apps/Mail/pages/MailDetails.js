@@ -28,7 +28,11 @@ export default {
         updateBookId() {
             const { mailId } = this.$route.params
             mailService.get(mailId)
-                .then(mail => this.mail = mail)
+                .then(mail => {
+                    this.mail = mail
+                    this.mail.isRead = true
+                    mailService.save(this.mail)
+                })
         },
         deleteMail(mailId) {
             console.log('delete in details')
@@ -38,5 +42,5 @@ export default {
             // this.$emit('forwardMail', mailId)
             console.log('forward in details')
         },
-    }
+    },
 }
