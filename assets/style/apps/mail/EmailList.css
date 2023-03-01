@@ -1,0 +1,22 @@
+body {
+    background-color: var(--secondary-clr1)
+}
+
+.email-box {
+    text-align: center;
+}
+
+.email-box table {
+    color: black;
+    background-color: rgb(241, 170, 170);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.email-box tbody {
+    background-color: lightpink;
+}
+
+.email-box tr {
+    margin-block-start: 30px;
+}

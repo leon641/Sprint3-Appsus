@@ -1,13 +1,14 @@
 import { mailService } from '../services/mail.service.js'
 export default {
     template: `
-        <section> 
+        <section  class="email-box"> 
             <h1>hello user</h1>
                <table>
-                    <thead><td>From</td><td>Title</td><td>Date</td></thead>
+                    <thead><td>From</td><td>To</td><td>Title</td><td>Date</td></thead>
                     <tbody>
                         <tr v-for="mail in mails" :key="mail.from"> 
                             <td>{{ mail.from }}</td>
+                            <td>{{ mail.to }}</td>
                             <td>{{ mail.body }}</td>
                             <td>{{ mail.sentAt }}</td>
                             <!-- <td><button @click="deleteReview(review.name)">X</button></td> -->
