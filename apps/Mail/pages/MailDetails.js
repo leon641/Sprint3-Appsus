@@ -5,7 +5,7 @@ export default {
         <table class="mails-table">
             <thead><td></td><td>From</td><td>To</td><td>Title</td><td>Date</td></thead>
             <tbody> <tr>
-                    <td><i class="fa-solid fa-trash" @click="deleteMail(mailId)"></i>
+                    <td><i class="fa-solid fa-trash" @click="deleteMail(mailId)"></i> |
                     <i class="fa-solid fa-share-from-square" @click="forwardMail(mailId)"></i></td>
                     <td>{{ mail.from }}</td>
                     <td>{{ mail.to }}</td>
