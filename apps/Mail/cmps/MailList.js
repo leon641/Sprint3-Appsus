@@ -1,12 +1,12 @@
+import { mailService } from '../services/mail.service.js'
 import inbox from '../cmps/MailList.inbox.js'
 export default {
-    props: ['mails'],
     template: `
-        <section>
+        <section> 
             <h1>hello user</h1>
             <ul> 
                 <li>
-                    <RouterLink to='/inbox'>Inbox</RouterLink>
+                    <RouterLink :mails='mails' to='/inbox'>Inbox</RouterLink>
                     <!-- <RouterLink to='/send'>Send</RouterLink> | -->
                 </li>
             </ul>
@@ -23,6 +23,21 @@ export default {
                 </table> -->
         </section>
     `,
+    created() {
+        this.updateMails()
+    },
+    data() {
+        return {
+            mails: '',
+        }
+    },
+    methods: {
+        updateMails() {
+            mailService.query()
+                .then(mails => this.mails = mails)
+                .then(() => console.log(this.mails))
+        }
+    },
     components: {
         inbox,
     }
