@@ -18,16 +18,16 @@ export const mailService = {
 
 function query(filterBy = {}) {
     return storageService.query(MAIL_KEY)
-        .then(mails => {
-            if (filterBy.txt) {
-                const regex = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regex.test(mail.vendor))
-            }
-            if (filterBy.minSpeed) {
-                mails = mails.filter(mail => mail.maxSpeed >= filterBy.minSpeed)
-            }
-            return mails
-        })
+    // .then(mails => {
+    //     if (filterBy.txt) {
+    //         const regex = new RegExp(filterBy.txt, 'i')
+    //         mails = mails.filter(mail => regex.test(mail.vendor))
+    //     }
+    //     if (filterBy.minSpeed) {
+    //         mails = mails.filter(mail => mail.maxSpeed >= filterBy.minSpeed)
+    //     }
+    //     return mails
+    // })
 }
 
 function get(mailId) {
@@ -72,7 +72,16 @@ function _createMails() {
             removedAt: null,
             from: 'momo@momo.com',
             to: 'user@appsus.com'
-        },]
+        }, {
+            id: 'e102',
+            subject: 'How are you?',
+            body: 'I hope i will see you next week',
+            isRead: false,
+            sentAt: 1551133930587,
+            removedAt: null,
+            from: 'momo@momo.com',
+            to: 'user@appsus.com'
+        }]
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
