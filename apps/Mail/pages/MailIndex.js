@@ -5,21 +5,21 @@ export default {
     template: `
         <section>
             <h2>Mail box</h2>
-            <MailList/>
+            <MailList :mails='mails'/>
         </section>
     `,
     created() {
-        // this.updateMails()
+        this.updateMails()
     },
-    date() {
+    data() {
         return {
             mails: '',
         }
     },
     methods: {
         updateMails() {
-            this.mails = mailService.query()
-            // .then(console.log(this.mails))
+            mailService.query()
+                .then(mails => this.mails = mails)
         }
     },
     components: {
