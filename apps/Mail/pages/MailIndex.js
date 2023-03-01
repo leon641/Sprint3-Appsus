@@ -1,5 +1,5 @@
 import MailList from '../cmps/MailList.js'
-import mailService from '../services/mail.service'
+import { mailService } from '../services/mail.service.js'
 
 export default {
     template: `
