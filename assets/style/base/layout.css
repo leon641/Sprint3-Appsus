@@ -1,7 +1,15 @@
-.main-layout {
+.email-box {
   margin: 0 auto;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
+  grid-template-columns: 1fr 7fr;
 }
 
+.toolbar {
+  grid-column: 1;
+}
 
+.mails-table {
+  grid-column: 2;
+  width: 100%;
+}

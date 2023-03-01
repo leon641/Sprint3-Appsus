@@ -1,9 +1,15 @@
 import { mailService } from '../services/mail.service.js'
 export default {
     template: `
-        <section  class="email-box"> 
-            <h1>hello user</h1>
-               <table>
+    <h1>hello user</h1>
+        <section class="email-box grid"> 
+            <div class="toolbar flex">
+                <button>All</button>
+                <button>Inbox</button>
+                <button>Send</button>
+                <button>Draft</button>
+            </div>
+               <table class="mails-table">
                     <thead><td>From</td><td>To</td><td>Title</td><td>Date</td></thead>
                     <tbody>
                         <tr v-for="mail in mails" :key="mail.from"> 

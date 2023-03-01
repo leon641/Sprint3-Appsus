@@ -19,3 +19,15 @@ body {
 .email-box td {
     padding: 10px;
 }
+
+.email-box .toolbar {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+.toolbar button {
+    background: none;
+    color: var(--secondary-clr4);
+    border: none;
+}
