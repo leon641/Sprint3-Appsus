@@ -13,11 +13,12 @@ export default {
                 </ul>
             </div>
                <table class="mails-table">
-                    <thead><td></td><td>From</td><td>Title</td><td>Date</td></thead>
+                    <thead><td></td><td></td><td></td><td></td></thead>
                     <tbody v-for="mail in mails" :key="mail.from">
                         <MailPreview :mail="mail"
                         @deleteMail="deleteMail"
-                        @forwardMail="forwardMail"/>
+                        @forwardMail="forwardMail"
+                        @replyMail="replyMail"/>
                     </tbody>
                 </table>
         </section>
@@ -36,10 +37,14 @@ export default {
                 .then(mails => this.mails = mails)
         },
         deleteMail(mailId) {
-            this.$emit('deleteMail', mailId)
+            mailService.remove(mailId)
+                .then(mails => this.mails = mails)
         },
         forwardMail(mailId) {
-            this.$emit('forwardMail', mailId)
+            console.log('forward')
+        },
+        replyMail(mailId) {
+            console.log('reply')
         },
     },
     components: {

@@ -1,3 +1,7 @@
 .details-box {
     margin-top: 10px;
 }
+
+.message {
+    text-align: start;
+}

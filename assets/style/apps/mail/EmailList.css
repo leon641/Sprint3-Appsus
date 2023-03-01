@@ -3,7 +3,7 @@ body {
 }
 
 .email-box {
-    text-align: center;
+    text-align: start;
 }
 
 .email-box table {
@@ -20,27 +20,10 @@ body {
     padding: 10px;
 }
 
-.email-box .toolbar {
-    border-radius: 10px;
-    flex-direction: column;
-    margin-inline-start: 10px;
-}
-
 .email-box .toolbar li {
     margin-block-start: 1em;
     margin-inline-end: 1em;
     list-style: none;
-}
-
-.toolbar button {
-    background: none;
-    color: var(--secondary-clr4);
-    border: none;
-}
-
-.in-mail-tools {
-    position: absolute;
-    top: 20%;
 }
 
 .fa-solid {

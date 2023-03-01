@@ -3,17 +3,24 @@ export default {
     template: `
     <section class="email-box grid details-box"> 
         <table class="mails-table">
-            <thead><td></td><td>From</td><td>To</td><td>Title</td><td>Date</td></thead>
-            <tbody> <tr>
-                    <td><i class="fa-solid fa-trash" @click="deleteMail(mailId)"></i> |
-                    <i class="fa-solid fa-share-from-square" @click="forwardMail(mailId)"></i></td>
+            <thead><td>From</td><td>To</td><td>Date</td></thead>
+            <tbody> <tr class="isRead">
                     <td>{{ mail.from }}</td>
                     <td>{{ mail.to }}</td>
-                    <td>{{ mail.body }}</td>
                     <td>{{ mail.sentAt }}</td>
-                    </tr>
+                </tr>
             </tbody> 
-        </table>
+    </table>
+
+    <table class="mails-table main-message-mail">
+    <thead><td>Message:</td></thead>
+    <tr class="isRead message"><td>{{ mail.body }}</td> 
+    <td><i class="fa-solid fa-trash" @click="deleteMail(mailId)"></i> |
+            <i class="fa-solid fa-share-from-square" @click="replyMail(mailId)"></i> |
+            <i class="fa-solid fa-up-right-from-square" @click="forwardMail(mailId)"></i></td>
+        </tr>
+    </table>
+
     </section>
     `,
     created() {
@@ -35,12 +42,16 @@ export default {
                 })
         },
         deleteMail(mailId) {
-            console.log('delete in details')
-            // this.$emit('deleteMail', mailId)
+            console.log('delete')
+            this.$emit('deleteMail', mailId)
         },
         forwardMail(mailId) {
-            // this.$emit('forwardMail', mailId)
-            console.log('forward in details')
+            console.log('forward')
+            this.$emit('forwardMail', mailId)
+        },
+        replyMail(mailId) {
+            console.log('reply')
+            this.$emit('replyMail', mailId)
         },
     },
 }
