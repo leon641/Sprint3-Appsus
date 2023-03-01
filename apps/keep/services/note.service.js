@@ -55,7 +55,7 @@ return notes
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
-    notes =  [
+    notes =  
         {
           id: 'n101',
           createdAt: 1112222,
@@ -95,7 +95,7 @@ function _createNotes() {
             { txt: 'Coding power', doneAt: 187111111 },
           ],
         },
-      ]
+      
     utilService.saveToStorage(NOTE_KEY, notes)
   }
 }

@@ -8,9 +8,15 @@ export default {
             <form @submit="">
                 <input type="text" v-model="txt" placeholder="search">
             </form>
-            <pre> {{notes}} </pre>
-            <noteList :notes="" @remove="removeNote" />
-        </section>
+            <section class="note-list">
+            <ul>
+                <li v-for="note in notes" :key="note.id">
+                <h1><span>Title</span> {{notes.info.title}} </h1>  
+                <h2><span>Info</span> {{notes.info.txt}} </h2>  
+                <button @click="remove(note.id)">x</button>
+                </li>
+            </ul>
+       
     `,
   data() {
     return {
