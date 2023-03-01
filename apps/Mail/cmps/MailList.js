@@ -1,16 +1,9 @@
 import { mailService } from '../services/mail.service.js'
-import inbox from '../cmps/MailList.inbox.js'
 export default {
     template: `
         <section> 
             <h1>hello user</h1>
-            <ul> 
-                <li>
-                    <RouterLink :mails='mails' to='/inbox'>Inbox</RouterLink>
-                    <!-- <RouterLink to='/send'>Send</RouterLink> | -->
-                </li>
-            </ul>
-               <!-- <table>
+               <table>
                     <thead><td>From</td><td>Title</td><td>Date</td></thead>
                     <tbody>
                         <tr v-for="mail in mails" :key="mail.from"> 
@@ -20,7 +13,7 @@ export default {
                             <td><button @click="deleteReview(review.name)">X</button></td>
                         </tr> 
                     </tbody>
-                </table> -->
+                </table>
         </section>
     `,
     created() {
@@ -35,11 +28,7 @@ export default {
         updateMails() {
             mailService.query()
                 .then(mails => this.mails = mails)
-                .then(() => console.log(this.mails))
         }
     },
-    components: {
-        inbox,
-    }
 }
 
