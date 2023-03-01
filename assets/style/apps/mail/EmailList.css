@@ -36,3 +36,12 @@ body {
     color: var(--secondary-clr4);
     border: none;
 }
+
+.in-mail-tools {
+    position: absolute;
+    top: 20%;
+}
+
+.fa-solid {
+    cursor: pointer;
+}
