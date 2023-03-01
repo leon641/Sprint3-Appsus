@@ -15,7 +15,10 @@ export default {
                <table class="mails-table">
                     <thead><td>From</td><td>To</td><td>Title</td><td>Date</td></thead>
                     <tbody v-for="mail in mails" :key="mail.from">
-                        <MailPreview :mail="mail" @click="openMail(mail.id)"/>
+                        <MailPreview :mail="mail"/>
+                        <a @click="openMail(mail.id)">Open</a>
+                        <a @click="deleteMail(mail.id)">Delete</a>
+                        <a @click="forwardMail(mail.id)">Forward</a>
                     </tbody>
                 </table>
         </section>
@@ -33,12 +36,17 @@ export default {
             mailService.query()
                 .then(mails => this.mails = mails)
         },
-        openMail(id) {
-            console.log('id', id)
-        }
+        openMail(mailId) {
+            this.$emit('openMail', mailId)
+        },
+        deleteMail(mailId) {
+            this.$emit('deleteMail', mailId)
+        },
+        forwardMail(mailId) {
+            this.$emit('forwardMail', mailId)
+        },
     },
     components: {
         MailPreview,
     }
 }
-
