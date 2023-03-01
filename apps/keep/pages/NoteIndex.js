@@ -11,9 +11,9 @@ export default {
             <section class="note-list">
             <ul>
                 <li v-for="note in notes" :key="note.id">
-                <h1><span>Title</span> {{note.title}} </h1>  
-                <h2><span>Info</span> {{note.txt}} </h2>  
-                <button @click="removeNote(notes.id)">x</button>
+                <h1><span>Title</span> {{note.info.title}} </h1>  
+                <h2><span>Info</span> {{note.info.txt}} </h2>  
+                <button @click="removeNote(note.id)">x</button>
                 </li>
             </ul>
        
