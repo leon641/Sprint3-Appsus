@@ -37,6 +37,7 @@ function get(noteId) {
 }
 
 function remove(noteId) {
+
   return storageService.remove(NOTE_KEY, noteId)
 }
 
@@ -56,11 +57,11 @@ function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
     notes =  
-        {
+  [{
           id: 'n101',
-          createdAt: 1112222,
           type: 'txt',
           isPinned: true,
+          createdAt: 1112222,
           style: {
             backgroundColor: '#00d',
           },
@@ -94,7 +95,7 @@ function _createNotes() {
             { txt: 'Drivig license', doneAt: null },
             { txt: 'Coding power', doneAt: 187111111 },
           ],
-        },
+        }]
       
     utilService.saveToStorage(NOTE_KEY, notes)
   }
