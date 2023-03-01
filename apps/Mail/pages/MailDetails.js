@@ -12,7 +12,7 @@ export default {
                     <td>{{ mail.body }}</td>
                     <td>{{ mail.sentAt }}</td>
                     </tr>
-            </tbody>
+            </tbody> 
         </table>
     </section>
     `,
