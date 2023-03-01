@@ -45,7 +45,6 @@ function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
-
 function animateCSS(el, animation) {
     const prefix = 'animate__'
     return new Promise((resolve, reject) => {
