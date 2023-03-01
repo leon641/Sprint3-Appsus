@@ -2,3 +2,15 @@
     margin: auto;
     color: var(--clr4)
 }
+
+.mail-index {
+    margin-block-start: 1em;
+}
+
+.mail-index h2 {
+    margin-inline-start: 1em;
+}
+
+.mail-index h1 {
+    margin-inline-start: 3em;
+}

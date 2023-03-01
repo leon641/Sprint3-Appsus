@@ -1,13 +1,14 @@
 import { mailService } from '../services/mail.service.js'
 export default {
     template: `
-    <h1>hello user</h1>
         <section class="email-box grid"> 
             <div class="toolbar flex">
-                <button>All</button>
-                <button>Inbox</button>
-                <button>Send</button>
-                <button>Draft</button>
+                <ul>
+	            <li><a href="#">All  </a></li>
+	            <li><a href="#">Inbox</a></li>
+	            <li><a href="#">Send </a></li>
+	            <li><a href="#">Draft</a></li>
+                </ul>
             </div>
                <table class="mails-table">
                     <thead><td>From</td><td>To</td><td>Title</td><td>Date</td></thead>

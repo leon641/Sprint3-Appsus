@@ -22,8 +22,13 @@ body {
 
 .email-box .toolbar {
     border-radius: 10px;
-    margin-bottom: 10px;
     flex-direction: column;
+    margin-inline-start: 10px;
+}
+
+.email-box .toolbar li {
+    margin-block-start: 1em;
+    list-style: none;
 }
 
 .toolbar button {
