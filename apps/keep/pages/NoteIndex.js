@@ -1,3 +1,7 @@
-import { noteService } from '../services/note.service.js'
-import NoteList from '../cmps/NoteList.js'
-
+export default {
+    template: `
+        <section>
+            <h2>note</h2>
+        </section>
+    `,
+}
