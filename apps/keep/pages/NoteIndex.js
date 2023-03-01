@@ -1,22 +1,15 @@
 import { noteService } from '../services/note.service.js'
-import noteList from '../cmps/NoteList.js'
+import NoteList from '../cmps/NoteList.js'
 import { showErrorMsg, showSuccessMsg} from '../../../services/event-bus.service.js'
 
 export default {
   template: `
         <section class="text-editor">
             <form @submit="">
-                <input type="text" v-model="txt" placeholder="search">
+                <input type="text" v-model="txt" placeholder="search" @click="onCreateNote">
             </form>
-            <section class="note-list">
-            <ul>
-                <li v-for="note in notes" :key="note.id">
-                <h1><span>Title</span> {{note.info.title}} </h1>  
-                <h2><span>Info</span> {{note.info.txt}} </h2>  
-                <button @click="removeNote(note.id)">x</button>
-                </li>
-            </ul>
-       
+            <NoteList @remove="removeNote" :notes="notes"/>   
+</section>    
     `,
   data() {
     return {
@@ -41,8 +34,11 @@ export default {
           showErrorMsg('Note remove failed')
         })
     },
+    onCreateNote() {
+        noteService.createNote()
+    }
   },
   components: {
-    noteList,
+    NoteList,
   },
 }
