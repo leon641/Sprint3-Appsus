@@ -13,14 +13,6 @@ export default {
             
         </article>
     `,
-    //    methods: {
-    //     remove(noteId) {
-    //         this.$emit('remove', noteId)
-    //     },
-    //     showDetails(noteId){
-    //         this.$emit('show-details', noteId)
-    //     },
-       
-    // },
+ 
     
 }

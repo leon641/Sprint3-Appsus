@@ -6,7 +6,8 @@ export default {
   template: `
         <section class="text-editor">
             <form @submit="">
-                <input type="text" v-model="txt" placeholder="search" @click="onCreateNote">
+                <button class="add-note" @click="onCreateNote">Add a note</button>
+                <input type="text" v-model="txt" placeholder="search" >
             </form>
             <NoteList @remove="removeNote" :notes="notes"/>   
 </section>    
@@ -35,7 +36,7 @@ export default {
         })
     },
     onCreateNote() {
-        noteService.createNote()
+        this.notes.push(noteService.createNote())
     }
   },
   components: {

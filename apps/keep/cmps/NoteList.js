@@ -8,14 +8,19 @@ export default {
             <ul>
                 <li v-for="note in notes" :key="note.id">
                     <NotePreview :note="note"/>
-                    <button @click="remove(note.id)">x</button>
+                    <span class="icon" @click="remove(note.id)">🗑️</span>
+                    <span class="icon" @click="edit(note.id)">📝</span>
+                    <span class="icon" @click="OnColorChange(note.id)">🎨</span>
+                    <span class="icon" @click="OnSend(note.id)">✉️</span>
 
-                </li>
+
+                </li
             </ul>
         </section>
     `,
     methods: {
         remove(noteId) {
+            debugger
             this.$emit('remove', noteId)
         },
         showDetails(noteId){

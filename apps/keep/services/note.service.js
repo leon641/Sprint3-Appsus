@@ -12,7 +12,7 @@ export const noteService = {
   remove,
   save,
   getEmptyNote,
-//   addReview,
+  createNote,
 //   removeReview,
 }
 
@@ -56,7 +56,7 @@ return notes
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
-    notes =  
+   let notes =  
   [{
           id: 'n101',
           type: 'txt',
@@ -98,6 +98,22 @@ function _createNotes() {
         }]
       
     utilService.saveToStorage(NOTE_KEY, notes)
+  }
+}
+
+function createNote() {
+  return {
+    id: utilService.makeId(),
+    type: 'txt',
+    isPinned: true,
+    createdAt: Date.now(),
+    style: {
+      backgroundColor: '#00d',
+    },
+    info: {
+      txt: 'Fullstack Me Baby!',
+      title: 'Get my stuff together',
+    },
   }
 }
 
