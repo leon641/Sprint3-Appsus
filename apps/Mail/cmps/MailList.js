@@ -15,10 +15,10 @@ export default {
                <table class="mails-table">
                     <thead><td>From</td><td>To</td><td>Title</td><td>Date</td></thead>
                     <tbody v-for="mail in mails" :key="mail.from">
-                        <MailPreview :mail="mail"/>
-                        <a @click="openMail(mail.id)">Open</a>
-                        <a @click="deleteMail(mail.id)">Delete</a>
-                        <a @click="forwardMail(mail.id)">Forward</a>
+                        <MailPreview :mail="mail"
+                        @click="openMail(mail.id)"
+                        @deleteMail="deleteMail"
+                        @forwardMail="forwardMail"/>
                     </tbody>
                 </table>
         </section>

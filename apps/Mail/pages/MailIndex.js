@@ -1,3 +1,4 @@
+import { mailService } from '../services/mail.service.js'
 import MailList from '../cmps/MailList.js'
 
 export default {
@@ -13,7 +14,9 @@ export default {
     `,
     methods: {
         openMail(mailId) {
-            console.log('open')
+            mailService.get(mailId)
+                // .then(res => console.log(res))
+            // .then()
         },
         deleteMail(mailId) {
             console.log('delete')
