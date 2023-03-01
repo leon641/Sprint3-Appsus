@@ -7,7 +7,7 @@ body {
 }
 
 .email-box table {
-    background-color: rgb(241, 170, 170);
+    background-color: var(--clr5);
     border-radius: 10px;
     margin-bottom: 10px;
 }

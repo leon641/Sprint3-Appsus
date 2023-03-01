@@ -67,7 +67,7 @@ function _createMails() {
             id: 'e101',
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
-            isRead: false,
+            isRead: true,
             sentAt: 1551133930594,
             removedAt: null,
             from: 'momo@momo.com',
@@ -80,6 +80,15 @@ function _createMails() {
             sentAt: 1551133930587,
             removedAt: null,
             from: 'momo@momo.com',
+            to: 'user@appsus.com'
+        }, {
+            id: 'e103',
+            subject: 'Hi user!',
+            body: 'New stuff in sale in our shop!',
+            isRead: false,
+            sentAt: 1551133930657,
+            removedAt: null,
+            from: 'AliExpress@momo.com',
             to: 'user@appsus.com'
         }]
         utilService.saveToStorage(MAIL_KEY, mails)
