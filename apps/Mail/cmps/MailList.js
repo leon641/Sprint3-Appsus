@@ -10,7 +10,7 @@ export default {
                             <td>{{ mail.from }}</td>
                             <td>{{ mail.body }}</td>
                             <td>{{ mail.sentAt }}</td>
-                            <td><button @click="deleteReview(review.name)">X</button></td>
+                            <!-- <td><button @click="deleteReview(review.name)">X</button></td> -->
                         </tr> 
                     </tbody>
                 </table>
