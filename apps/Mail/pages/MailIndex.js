@@ -50,7 +50,6 @@ export default {
                 msg: '',
                 target: '',
             }
-            // isShowUnRead: false,
         }
     },
     methods: {
