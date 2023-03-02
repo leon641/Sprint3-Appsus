@@ -6,8 +6,8 @@ import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
 const loggedInUser = {
-    email: 'user@appsus.com',
-    fullName: 'Mahatma Appsus'
+    user: 'user@appsus.com',
+    fullName: 'Inon farhan'
 }
 
 _createMails()
@@ -18,22 +18,11 @@ export const mailService = {
     remove,
     save,
     getEmptyMail,
-    addReview,
     getUser,
 }
 
-function query(filterBy = {}) {
+function query() {
     return storageService.query(MAIL_KEY)
-    // .then(mails => {
-    //     if (filterBy.txt) {
-    //         const regex = new RegExp(filterBy.txt, 'i')
-    //         mails = mails.filter(mail => regex.test(mail.vendor))
-    //     }
-    //     if (filterBy.minSpeed) {
-    //         mails = mails.filter(mail => mail.maxSpeed >= filterBy.minSpeed)
-    //     }
-    //     return mails
-    // })
 }
 
 function getUser() {
@@ -112,16 +101,6 @@ function _createMails() {
         }]
         utilService.saveToStorage(MAIL_KEY, mails)
     }
-}
-
-function addReview(mailId, review) {
-    return get(mailId)
-        .then(currmail => {
-            if (!currmail.reviews) currmail.reviews = []
-            currmail.reviews.unshift(review)
-            save(currmail)
-            return currmail
-        })
 }
 
 function _setNextPrevMailId(mail) {

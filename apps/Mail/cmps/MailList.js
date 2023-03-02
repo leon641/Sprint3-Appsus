@@ -1,4 +1,3 @@
-import { mailService } from '../services/mail.service.js'
 import MailPreview from '../cmps/MailPreview.js'
 
 export default {
@@ -15,10 +14,13 @@ export default {
                 </ul>
             </div>
                <table class="mails-table">
-                    <thead><td><li>UnRead</li></td><td></td><td></td><td></td></thead>
-                    <tbody v-for="mail in mails" :key="mail.from">
+                    <thead><td>
+                    <li @click="setFilterBy('unread')" class="fa-solid fa-filter"></li> | 
+                    <li @click="WriteNewMail" class="fa-solid fa-pen-to-square"></li> 
+                    </td><td></td><td></td><td></td></thead>
+                    <tbody v-for="mail in mails" :key="mail.id">
                         <MailPreview :mail="mail"
-                        @deleteMail="deleteMail"
+                        @moveToTrash="moveToTrash"
                         @forwardMail="forwardMail"
                         @replyMail="replyMail"/>
                     </tbody>
@@ -26,8 +28,8 @@ export default {
         </section>
     `,
     methods: {
-        deleteMail(mailId) {
-            this.$emit('deleteMail', mailId)
+        moveToTrash(mailId) {
+            this.$emit('moveToTrash', mailId)
         },
         forwardMail(mailId) {
             this.$emit('filter', filterBy)
@@ -37,7 +39,13 @@ export default {
         },
         setFilterBy(filterBy) {
             this.$emit('filter', filterBy)
-        }
+        },
+        WriteNewMail() {
+            this.$emit('WriteNewMail')
+        },
+        // isShowUnRead() {
+        //     this.$emit('isShowUnRead')
+        // },
     },
     components: {
         MailPreview,

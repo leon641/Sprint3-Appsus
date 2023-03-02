@@ -2,27 +2,24 @@ export default {
     props: ['mail'],
     template: `
             <tr :class="[(mail.isRead)? 'isRead' : 'isUnRead']">
-                <td><i class="fa-solid fa-trash" @click="deleteMail(mail.id)"></i> |
+                <td><i class="fa-solid fa-trash" @click="moveToTrash(mail.id)"></i> |
                 <i class="fa-solid fa-share-from-square" @click="replyMail(mail.id)"></i> |
                 <i class="fa-solid fa-up-right-from-square" @click="forwardMail(mail.id)"></i></td>
-                <td>From: {{ mail.from }}</td>
+                <td>{{ mail.from }}</td>
                 <td><RouterLink :to="'/mail/'+mail.id"
-                @deleteMail="deleteMail"
-                @forwardMail="forwardMail"
-                @replyMail="replyMail"
-                ><span class="subject">{{mail.subject}}</span> - {{mail.body }}</RouterLink></td>
+                ><span class="bold">{{mail.subject}}</span> - {{mail.body }}</RouterLink></td>
                 <td>{{ mail.sentAt }}</td>
-            </tr> 
-    `,
+            </tr>
+            `,
     methods: {
-        deleteMail(mailId) {
-            this.$emit('deleteMail', mailId)
+        moveToTrash(mailId) {
+            this.$emit('moveToTrash', mailId)
         },
         forwardMail(mailId) {
-            this.$emit('forwardMail', mailId)
+            this.$emit('filter', filterBy)
         },
         replyMail(mailId) {
-            this.$emit('replyMail', mailId)
+            this.$emit('filter', filterBy)
         },
-    },
+    }
 }
