@@ -89,13 +89,13 @@ export const noteService = {
 
 function query(filterBy = {}) {
   return storageService.query(NOTE_KEY).then((notes) => {
-    // if (filterBy.txt) {
-    //   const regex = new RegExp(filterBy.txt, 'i')
-    //   notes = notes.filter((note) => regex.test(note.info.title))
-    // }
-    // if (filterBy.bookPrice) {
-    //   notes = notes.filter((book) => book.bookPrice >= filterBy.bookPrice)
-    // }
+    if (filterBy.txt) {
+      const regex = new RegExp(filterBy.txt, 'i')
+      notes = notes.filter((note) => regex.test(note.info.title))
+    }
+    if (filterBy.bookPrice) {
+      notes = notes.filter((book) => book.bookPrice >= filterBy.bookPrice)
+    }
     return notes
   })
 }
@@ -167,43 +167,6 @@ function loadImageFromInput(ev, onImageReady) {
   reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
 }
 
-// function _createNote(bookName, bookPrice = 250) {
-//   const book = getEmptNote(bookName, bookPrice)
-//   book.id = utilService.makeId()
-//   return book
-// }
-
-// function removeReview(bookId, reviewId) {
-//   return get(bookId).then((book) => {
-//     const idx = book.reviews.findIndex((review) => review.id === reviewId)
-//     book.reviews.splice(idx, 1)
-//     return save(book)
-//   })
-// }
-
-// function addReview(bookId, review) {
-//     return get(bookId).then((book) => {
-//         review.id = utilService.makeId(4)
-//         if (!book.reviews) {
-//             book.reviews = []
-//         }
-//         book.reviews.push(review)
-//         return save(book)
-//     })
-// }
-
-// function setNextPrevBookId(book) {
-//     return storageService.query(note_KEY).then((books) => {
-//         const bookIdx = books.findIndex((currBook) => currBook.id === book.id)
-//         book.nextBookId = books[bookIdx + 1] ? books[bookIdx + 1].id : books[0].id
-//         book.prevBookId = books[bookIdx - 1]
-//         ? books[bookIdx - 1].id
-//         : books[books.length - 1].id
-//         return book
-//     })
-// }
-
-//new function cr
 
 
 

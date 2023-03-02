@@ -2,6 +2,7 @@ import NotePreview from './NotePreview.js'
 import NoteTxt from './NoteTxt.js'
 import NoteImg from './NoteImg.js'
 
+
 export default {
   props: ['notes'],
 
@@ -17,13 +18,14 @@ export default {
                     <span class="icon" @click="OnColorChange(note.id)">🎨</span>
                     <input type="color">
                     </label>
-                    <span class="icon" @click="OnLoad(note.id)">🖼️ </span>
+                    <span class="icon" @click="onImgInput(note.id)">🖼️</span>
 
 
 </li>
             </ul>
         </section>
     `,
+    
   methods: {
     remove(noteId) {
       this.$emit('remove', noteId)
@@ -31,14 +33,15 @@ export default {
     showDetails(noteId) {
       this.$emit('show-details', noteId)
     },
-    onLoad(noteId) {
-      this.$emit('upload', noteId)
-    },
+  
+   
+    
   },
   components: {
     NotePreview,
     NoteTxt,
-    NoteImg
+    NoteImg,
+    
   },
   emits: ['remove'],
 }

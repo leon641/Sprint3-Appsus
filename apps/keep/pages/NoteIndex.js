@@ -12,7 +12,10 @@ export default {
                     <input type="text" v-model="body" placeholder="Enter a note msg....">
                 </section>
             </form>
-            <NoteList @remove="removeNote" :notes="notes"/>   
+            <NoteList 
+            @remove="removeNote" 
+            @upload="loadImg" 
+            :notes="notes"/>   
 </section>    
     `,
   data() {
@@ -44,6 +47,9 @@ export default {
       .then((note) => {
         this.notes.push(note)
       })
+    },
+    loadImg() {
+      noteService.loadImageFromInput()
     }
   },
   components: {
