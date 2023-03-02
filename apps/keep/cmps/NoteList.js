@@ -1,3 +1,4 @@
+
 import NotePreview from './NotePreview.js'
 
 export default {
@@ -11,7 +12,7 @@ export default {
                     <span class="icon" @click="remove(note.id)">🗑️</span>
                     <span class="icon" @click="edit(note.id)">📝</span>
                     <span class="icon" @click="OnColorChange(note.id)">🎨</span>
-                    <span class="icon" @click="OnSend(note.id)">✉️</span>
+                    <span class="icon" @click="OnLoad(note.id)">🖼️ </span>
 
 
 </li>
@@ -25,6 +26,9 @@ export default {
     showDetails(noteId) {
       this.$emit('show-details', noteId)
     },
+    onLoad(noteId) {
+        this.$emit('upload', noteId)
+    }
   },
   components: {
     NotePreview,

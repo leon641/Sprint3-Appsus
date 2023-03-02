@@ -3,7 +3,8 @@ import { utilService } from     '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
-const gNotes =  [{
+const gNotes =  [
+  {
   id: 'n101',
   type: 'txt',
   isPinned: true,
@@ -12,8 +13,8 @@ const gNotes =  [{
     backgroundColor: '#00d',
   },
   info: {
-    txt: 'Fullstack Me Baby!',
-    title: 'Get my stuff together',
+    title: 'lunch',
+    txt: 'Having lunch with the kids at the mall',
   },
 },
 {
@@ -24,8 +25,8 @@ const gNotes =  [{
   info: {
     // url: 'http://some-img/me',
     
-    title: 'Bobi and Me',
-    txt: 'Fullstack Me Baby!',
+    title: 'sprint 3',
+    txt: 'Fullstack Me Baby! improve your skills in vue ',
   },
   style: {
     backgroundColor: '#00d',
@@ -38,12 +39,40 @@ const gNotes =  [{
   isPinned: false,
   info: {
     title: 'Get my stuff together',
+    txt: 'getting ready for next week',
   },
   todos: [
     { txt: 'Drivig license', doneAt: null },
     { txt: 'Coding power', doneAt: 187111111 },
   ],
-}]
+},
+{
+  id: 'n104',
+  type: 'txt',
+  isPinned: true,
+  createdAt: new Date().toLocaleString(),
+  style: {
+    backgroundColor: '#00d',
+  },
+  info: {
+    title: 'Going out',
+    txt: 'Having beer with friends',
+  },
+},
+{
+  id: 'n105',
+  type: 'txt',
+  isPinned: true,
+  createdAt: new Date().toLocaleString(),
+  style: {
+    backgroundColor: '#00d',
+  },
+  info: {
+    title: 'Soccer game',
+    txt: 'Going to a soccer game with inon',
+  },
+},
+]
 
 
 _createNotes()
