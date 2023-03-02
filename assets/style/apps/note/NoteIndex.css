@@ -18,3 +18,12 @@ input {
 .add-note:hover {
     background-color: lightgreen;
 }
+
+.txt-box {
+    width: 70%;
+}
+
+.txt-box input:hover{
+    cursor: pointer;
+    
+}

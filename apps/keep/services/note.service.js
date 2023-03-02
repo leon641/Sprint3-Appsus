@@ -3,6 +3,46 @@ import { utilService } from     '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
+const gNotes =  [{
+  id: 'n101',
+  type: 'txt',
+  isPinned: true,
+  createdAt: new Date().toLocaleString(),
+  style: {
+    backgroundColor: '#00d',
+  },
+  info: {
+    txt: 'Fullstack Me Baby!',
+    title: 'Get my stuff together',
+  },
+},
+{
+  id: 'n102',
+  type: 'txt',
+  createdAt: new Date().toLocaleString(),
+  isPinned: false,
+  info: {
+    url: 'http://some-img/me',
+    title: 'Bobi and Me',
+  },
+  style: {
+    backgroundColor: '#00d',
+  },
+},
+{
+  id: 'n103',
+  createdAt: new Date().toLocaleString(),
+  type: 'txt',
+  isPinned: false,
+  info: {
+    title: 'Get my stuff together',
+  },
+  todos: [
+    { txt: 'Drivig license', doneAt: null },
+    { txt: 'Coding power', doneAt: 187111111 },
+  ],
+}]
+
 
 _createNotes()
 
@@ -13,7 +53,7 @@ export const noteService = {
   save,
   getEmptyNote,
   createNote,
-//   removeReview,
+  loadImageFromInput,
 }
 
 function query(filterBy = {}) {
@@ -56,65 +96,42 @@ return notes
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
-   let notes =  
-  [{
-          id: 'n101',
-          type: 'txt',
-          isPinned: true,
-          createdAt: 1112222,
-          style: {
-            backgroundColor: '#00d',
-          },
-          info: {
-            txt: 'Fullstack Me Baby!',
-            title: 'Get my stuff together',
-          },
-        },
-        {
-          id: 'n102',
-          type: 'txt',
-          createdAt: 1112222,
-          isPinned: false,
-          info: {
-            url: 'http://some-img/me',
-            title: 'Bobi and Me',
-          },
-          style: {
-            backgroundColor: '#00d',
-          },
-        },
-        {
-          id: 'n103',
-          createdAt: 1112222,
-          type: 'txt',
-          isPinned: false,
-          info: {
-            title: 'Get my stuff together',
-          },
-          todos: [
-            { txt: 'Drivig license', doneAt: null },
-            { txt: 'Coding power', doneAt: 187111111 },
-          ],
-        }]
-      
+   notes = gNotes
+ 
     utilService.saveToStorage(NOTE_KEY, notes)
   }
 }
 
-function createNote() {
-  return {
+function createNote(title,body) {
+  let note = {
     id: utilService.makeId(),
     type: 'txt',
     isPinned: true,
-    createdAt: Date.now(),
+    createdAt: new Date().toLocaleString(),
     style: {
       backgroundColor: '#00d',
     },
     info: {
-      txt: 'Fullstack Me Baby!',
-      title: 'Get my stuff together',
+      txt: body,
+      title,
     },
   }
+  save(note)
+  return note
+}
+
+function loadImageFromInput(ev, onImageReady) {
+  const reader = new FileReader()
+  // After we read the file
+  reader.onload = function (event) {
+    let img = new Image() // Create a new html img element
+    img.src = event.target.result // Set the img src to the img file we read
+    // Run the callBack func, To render the img on the canvas
+    img.onload = onImageReady.bind(null, img)
+    // Can also do it this way:
+    // img.onload = () => onImageReady(img)
+  }
+  reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
 }
 
 // function _createNote(bookName, bookPrice = 250) {

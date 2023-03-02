@@ -1,9 +1,9 @@
 import NotePreview from './NotePreview.js'
 
 export default {
-    props:['notes'],
-    
-    template: `
+  props: ['notes'],
+
+  template: `
         <section class="note-list">
             <ul>
                 <li v-for="note in notes" :key="note.id">
@@ -14,22 +14,20 @@ export default {
                     <span class="icon" @click="OnSend(note.id)">✉️</span>
 
 
-                </li
+</li>
             </ul>
         </section>
     `,
-    methods: {
-        remove(noteId) {
-            
-            this.$emit('remove', noteId)
-        },
-        showDetails(noteId){
-            this.$emit('show-details', noteId)
-        },
-       
+  methods: {
+    remove(noteId) {
+      this.$emit('remove', noteId)
     },
-    components: {
-        NotePreview,
+    showDetails(noteId) {
+      this.$emit('show-details', noteId)
     },
-    emits: ['remove'],
+  },
+  components: {
+    NotePreview,
+  },
+  emits: ['remove'],
 }

@@ -7,14 +7,18 @@ export default {
         <section class="text-editor">
             <form @submit="">
                 <button class="add-note" @click="onCreateNote">Add a note</button>
-                <input type="text" v-model="txt" placeholder="What's on Your Mind..." >
+                <section class="txt-box">
+                    <input type="text" v-model="title" placeholder="What's on Your Mind...">
+                    <input type="text" v-model="body" placeholder="Enter a note msg....">
+                </section>
             </form>
             <NoteList @remove="removeNote" :notes="notes"/>   
 </section>    
     `,
   data() {
     return {
-        txt : '',
+        title : '',
+        body : '',
         notes: [],
         filterBy: {},
     }
@@ -36,7 +40,7 @@ export default {
         })
     },
     onCreateNote() {
-        this.notes.push(noteService.createNote())
+        this.notes.push(noteService.createNote(this.title, this.body))
     }
   },
   components: {
