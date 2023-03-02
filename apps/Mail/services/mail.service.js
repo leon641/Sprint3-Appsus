@@ -6,7 +6,7 @@ import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
 const loggedInUser = {
-    user: 'user@appsus.com',
+    email: 'user@appsus.com',
     fullName: 'Inon farhan'
 }
 
@@ -48,14 +48,13 @@ function save(mail) {
 
 function getEmptyMail() {
     return {
-        title: '',
-        thumbnail: "img/default-img.jpg",
-        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis enim rem porro delectus. Quos expedita ipsam repellendus voluptas quas, nam ea eligendi veniam ullam, modi impedit eveniet quia quaerat molestias?',
-        listPrice: {
-            amount: 0,
-            currencyCode: 'USD',
-        },
-        pageCount: '',
+        subject: '',
+        body: '',
+        isRead: false,
+        sentAt: null,
+        removedAt: null,
+        from: loggedInUser.email,
+        to: '',
     }
 }
 

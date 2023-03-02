@@ -40,7 +40,7 @@ export default {
                 })
         },
         moveToTrash() {
-            if (this.mail.removedAt) deleteMail(this.mail.id)
+            if (this.mail.removedAt) this.deleteMail(this.mail.id)
             else {
                 mailService.query()
                     .then(mail => mail.id === this.mail.id)

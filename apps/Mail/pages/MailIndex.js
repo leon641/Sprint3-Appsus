@@ -18,10 +18,14 @@ export default {
     <section v-if="isCreateMail" class="new-mail-box">
     <thead><tr><td>New message:</td><td @click="openCloseMsgModal" class="fa-solid fa-xmark"></td></tr></thead>
          <tbody>
-         <tr><td><label>From: {{ user.fullName}} ({{user.user}}).</label></td></tr>
-         <br>
-         <tr><td><textarea name="msg" rows="30" cols="50" placeholder="Your message..."></textarea></td></tr>
-         <tr><td @click="sendMsg">Send</td></tr>
+             <tr><td><label>From: {{ user.fullName}} ({{user.email}}).</label></td></tr>
+        <br>
+            <tr><td><textarea v-model="newMsg.target" rows="1" cols="50" placeholder="Send to..."></textarea></td></tr>
+        <br>
+            <tr><td><textarea v-model="newMsg.subject" rows="1" cols="50" placeholder="Subject..."></textarea></td></tr>
+        <br> 
+            <tr><td><textarea v-model="newMsg.msg" rows="30" cols="50" placeholder="Your message..."></textarea></td></tr>
+            <tr><td @click="sendMsg">Send</td></tr>
          </tbody>
         
     </section>
@@ -37,6 +41,11 @@ export default {
             mails: null,
             filterBy: 'all',
             isCreateMail: false,
+            newMsg: {
+                subject: '',
+                msg: '',
+                target: '',
+            }
             // isShowUnRead: false,
         }
     },
@@ -49,7 +58,7 @@ export default {
         },
         moveToTrash(mailId) {
             const idx = this.mails.findIndex(mail => mail.id === mailId)
-            if (this.mails[idx].removedAt) deleteMail(mailId)
+            if (this.mails[idx].removedAt) this.deleteMail(mailId)
             else {
                 this.mails[idx].removedAt = new Date()
                 mailService.get(mailId)
@@ -63,7 +72,6 @@ export default {
             const idx = this.mails.findIndex(mail => mail.id === mailId)
             this.mails.splice(idx, 1)
             mailService.remove(mailId)
-            // .then(mails => this.mails = mails)
         },
         forwardMail(mailId) {
             console.log('forward')
@@ -75,7 +83,18 @@ export default {
             this.isCreateMail = !this.isCreateMail
         },
         sendMsg() {
-            console.log('sendMsg')
+            let NewMail = mailService.getEmptyMail()
+            NewMail.subject = this.newMsg.subject
+            NewMail.body = this.newMsg.msg
+            NewMail.sentAt = new Date()
+            NewMail.to = this.newMsg.target
+
+            mailService.save(NewMail)
+            this.mails.unshift(NewMail)
+            this.openCloseMsgModal()
+            this.newMsg.subject = ''
+            this.msg = ''
+            this.newMsg.target = ''
         }
     },
     computed: {
