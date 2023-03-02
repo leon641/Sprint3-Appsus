@@ -64,7 +64,6 @@ export default {
             if (this.filterBy.isRead === null) this.filterBy.isRead = false
             else if (this.filterBy.isRead === false) this.filterBy.isRead = true
             else this.filterBy.isRead = null
-            console.log(this.filterBy.isRead)
         },
         moveToTrash(mailId) {
             const idx = this.mails.findIndex(mail => mail.id === mailId)
