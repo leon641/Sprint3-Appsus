@@ -11,7 +11,7 @@ export default {
                     <li @click="setFilterBy('inbox')">Inbox</li>
                     <li @click="setFilterBy('send')">Send</li>
                     <li @click="setFilterBy('draft')">Draft</li>
-                    <li @click="setFilterBy('garbage')">Garbage</li>
+                    <li @click="setFilterBy('Garbage')">Garbage</li>
                 </ul>
             </div>
                <table class="mails-table">

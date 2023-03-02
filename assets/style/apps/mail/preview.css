@@ -1,3 +1,12 @@
 .isRead {
-    background-color: var(--clr6)
+    background-color: var(--clr5);
+}
+
+.isUnRead.subject {
+    font-weight: bold;
+}
+
+.subject {
+    color: var(--clr2);
+    font-size: large;
 }

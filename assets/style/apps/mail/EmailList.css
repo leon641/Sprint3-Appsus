@@ -1,19 +1,9 @@
-body {
-    background-color: var(--secondary-clr1)
-}
-
 .email-box {
     text-align: start;
 }
 
-.email-box table {
-    background-color: var(--clr5);
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.email-box tbody {
-    background-color: lightpink;
+.email-box td {
+    padding: 10px;
 }
 
 .email-box td {

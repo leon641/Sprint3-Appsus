@@ -18,7 +18,7 @@ const routerOptions = {
 			component: AboutUs,
 		},
 		{
-			path: '/mail',
+			path: '/mail/:filterBy?',
 			component: Mail,
 		},
 		{

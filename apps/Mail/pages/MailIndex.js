@@ -27,6 +27,7 @@ export default {
     methods: {
         setFilterBy(filterBy) {
             this.filterBy = filterBy
+            this.$emit('set-route', filterBy)
         },
         deleteMail(mailId) {
             mailService.remove(mailId)
