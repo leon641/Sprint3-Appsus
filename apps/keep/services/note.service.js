@@ -116,6 +116,7 @@ function save(note) {
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
+    note.id = utilService.makeId()
     return storageService.post(NOTE_KEY, note)
   }
 }
@@ -135,20 +136,21 @@ function _createNotes() {
 
 function createNote(title,body) {
   let note = {
-    id: utilService.makeId(),
-    type: 'txt',
+    id: '',
+    type: '',
     isPinned: true,
     createdAt: new Date().toLocaleString(),
     style: {
       backgroundColor: '#00d',
     },
     info: {
+      url: 'http://some-img/me',
       txt: body,
       title,
     },
   }
-  save(note)
-  return note
+
+  return save(note)
 }
 
 function loadImageFromInput(ev, onImageReady) {

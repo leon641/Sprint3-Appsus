@@ -40,7 +40,10 @@ export default {
         })
     },
     onCreateNote() {
-        this.notes.push(noteService.createNote(this.title, this.body))
+      noteService.createNote(this.title, this.body)
+      .then((note) => {
+        this.notes.push(note)
+      })
     }
   },
   components: {

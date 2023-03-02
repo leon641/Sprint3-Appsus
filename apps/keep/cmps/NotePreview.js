@@ -1,15 +1,17 @@
+import NoteTxt from './NoteTxt.js'
+import NoteImg from './NoteImg.js'
+
 export default {
   props: ['note'],
   template: `
-        <article class="note-preview">
-            <h2> {{note.info.title}} </h2>  
-            <h1>
-                
-                 {{note.info.txt}} 
-                </h1>  
-
-                <span> {{note.createdAt}} </span>
-            
-        </article>
+    <div>
+    <component 
+    :is="note.type"
+    :info="note.info" />
+    </div>
     `,
+    components : {
+        NoteTxt,
+        NoteImg
+    }
 }

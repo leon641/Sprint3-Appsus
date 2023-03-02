@@ -1,4 +1,6 @@
 import NotePreview from './NotePreview.js'
+import NoteTxt from './NoteTxt.js'
+import NoteImg from './NoteImg.js'
 
 export default {
   props: ['notes'],
@@ -7,7 +9,7 @@ export default {
         <section class="note-list">
             <ul>
                 <li class="note-card" v-for="note in notes" :key="note.id">
-                    <NotePreview :note="note"/>
+                    <NoteTxt :note="note"/>
                     <span class="icon" @click="remove(note.id)">🗑️</span>
                     <span class="icon" @click="edit(note.id)">📝</span>
                     <input class="color" type="color" >
@@ -35,6 +37,8 @@ export default {
   },
   components: {
     NotePreview,
+    NoteTxt,
+    NoteImg
   },
   emits: ['remove'],
 }
