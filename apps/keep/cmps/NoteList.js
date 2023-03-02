@@ -20,8 +20,7 @@ export default {
                     </label>
                     <span class="icon" @click="onImgInput(note.id)">🖼️</span>
 
-
-</li>
+                </li>
             </ul>
         </section>
     `,

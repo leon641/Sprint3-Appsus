@@ -1,5 +1,5 @@
 .note-list ul {
-    columns: 4 160px;
+    columns: 7 150px;
     gap: 10px;
 
     padding: 10px;
@@ -16,15 +16,6 @@
 .icon{
     cursor: pointer;  
 }
-/* .color{
-    background-color: transparent;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    border-radius: 50%;
-    border: none;
-    
-} */
 
 input[type="color"] {
     display: none;

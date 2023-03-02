@@ -6,36 +6,22 @@ const NOTE_KEY = 'noteDB'
 const gNotes =  [
   {
   id: 'n101',
-  type: 'txt',
+  type: 'img',
   isPinned: true,
   createdAt: new Date().toLocaleString(),
   style: {
     backgroundColor: '#00d',
   },
   info: {
+    url: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     title: 'lunch',
     txt: 'Having lunch with the kids at the mall',
   },
 },
 {
-  id: 'n102',
-  type: 'txt',
-  createdAt: new Date().toLocaleString(),
-  isPinned: false,
-  info: {
-    // url: 'http://some-img/me',
-    
-    title: 'sprint 3',
-    txt: 'Fullstack Me Baby! improve your skills in vue ',
-  },
-  style: {
-    backgroundColor: '#00d',
-  },
-},
-{
   id: 'n103',
   createdAt: new Date().toLocaleString(),
-  type: 'txt',
+  type: 'todos',
   isPinned: false,
   info: {
     title: 'Get my stuff together',
@@ -47,16 +33,17 @@ const gNotes =  [
   ],
 },
 {
-  id: 'n104',
-  type: 'txt',
-  isPinned: true,
+  id: 'n102',
+  type: 'img',
   createdAt: new Date().toLocaleString(),
+  isPinned: false,
+  info: {
+    url: 'https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    title: 'sprint 3',
+    txt: 'Fullstack Me Baby! ',
+  },
   style: {
     backgroundColor: '#00d',
-  },
-  info: {
-    title: 'Going out',
-    txt: 'Having beer with friends',
   },
 },
 {
@@ -70,6 +57,48 @@ const gNotes =  [
   info: {
     title: 'Soccer game',
     txt: 'Going to a soccer game with inon',
+  },
+},
+{
+  id: 'n102',
+  type: 'img',
+  createdAt: new Date().toLocaleString(),
+  isPinned: false,
+  info: {
+    url: 'https://demolay.org/wp-content/uploads/2018/12/Vacation.jpg',
+    title: 'After sprint 4',
+    txt: 'Going on a vacation! ',
+  },
+  style: {
+    backgroundColor: '#00d',
+  },
+},
+
+{
+  id: 'n105',
+  type: 'txt',
+  isPinned: true,
+  createdAt: new Date().toLocaleString(),
+  style: {
+    backgroundColor: '#00d',
+  },
+  info: {
+    title: 'Soccer game',
+    txt: 'Going to a soccer game with inon',
+  },
+},
+{
+  id: 'n102',
+  type: 'img',
+  createdAt: new Date().toLocaleString(),
+  isPinned: false,
+  info: {
+    url: 'https://images.unsplash.com/photo-1592609931095-54a2168ae893?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    title: 'Coding',
+    txt: 'improve your skills in vue! ',
+  },
+  style: {
+    backgroundColor: '#00d',
   },
 },
 ]

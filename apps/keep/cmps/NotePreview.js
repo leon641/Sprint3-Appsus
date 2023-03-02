@@ -8,10 +8,13 @@ export default {
     <component 
     :is="note.type"
     :info="note.info" />
+    
+  
+
     </div>
     `,
     components : {
-        NoteTxt,
-        NoteImg
+        txt:NoteTxt,
+        img:NoteImg
     }
 }
