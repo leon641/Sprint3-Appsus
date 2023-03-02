@@ -7,7 +7,7 @@ export default {
         <section class="text-editor">
             <form @submit="">
                 <button class="add-note" @click="onCreateNote">Add a note</button>
-                <input type="text" v-model="txt" placeholder="search" >
+                <input type="text" v-model="txt" placeholder="What's on Your Mind..." >
             </form>
             <NoteList @remove="removeNote" :notes="notes"/>   
 </section>    

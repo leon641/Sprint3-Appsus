@@ -20,7 +20,7 @@ export default {
     `,
     methods: {
         remove(noteId) {
-            debugger
+            
             this.$emit('remove', noteId)
         },
         showDetails(noteId){
