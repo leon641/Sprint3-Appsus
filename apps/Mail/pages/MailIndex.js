@@ -5,6 +5,7 @@ export default {
     template: `
         <section class="mail-index">
             <MailList
+            @updateUnread="updateUnread"
             @filter="setFilterBy"
             :mails="filteredMails" 
             v-if="mails"
@@ -39,7 +40,10 @@ export default {
         return {
             user: '',
             mails: null,
-            filterBy: 'all',
+            filterBy: {
+                isRead: null,
+                type: 'all',
+            },
             isCreateMail: false,
             newMsg: {
                 subject: '',
@@ -54,7 +58,13 @@ export default {
             this.user = mailService.getUser()
         },
         setFilterBy(filterBy) {
-            this.filterBy = filterBy
+            this.filterBy.type = filterBy
+        },
+        updateUnread() {
+            if (this.filterBy.isRead === null) this.filterBy.isRead = false
+            else if (this.filterBy.isRead === false) this.filterBy.isRead = true
+            else this.filterBy.isRead = null
+            console.log(this.filterBy.isRead)
         },
         moveToTrash(mailId) {
             const idx = this.mails.findIndex(mail => mail.id === mailId)
@@ -99,17 +109,31 @@ export default {
     },
     computed: {
         filteredMails() {
-            if (this.filterBy === 'all') return this.mails.filter(mail => mail.removedAt === null)
-            if (this.filterBy === 'inbox') return this.mails.filter(mail => mail.to === mailService.getUser().email)
-            if (this.filterBy === 'send') return this.mails.filter(mail => mail.from === mailService.getUser().email)
-            if (this.filterBy === 'unread') return this.mails.filter(mail => !mail.isRead)
-            if (this.filterBy === 'Garbage') return this.mails.filter(mail => mail.removedAt !== null)
+            if (this.filterBy.type === 'all') {
+                return this.mails.filter(mail => {
+                    if (this.filterBy.isRead !== null && mail.isRead !== this.filterBy.isRead) return false
+                    return mail.removedAt === null
+                })
+            }
+            if (this.filterBy.type === 'inbox') {
+                return this.mails.filter(mail => {
+                    if (this.filterBy.isRead !== null && mail.isRead !== this.filterBy.isRead) return false
+                    return mail.to === mailService.getUser().email
+                })
+            }
+            if (this.filterBy.type === 'send') {
+                return this.mails.filter(mail => {
+                    if (this.filterBy.isRead !== null && mail.isRead !== this.filterBy.isRead) return false
+                    return mail.from === mailService.getUser().email
+                })
+            }
+            if (this.filterBy.type === 'Garbage') {
+                return this.mails.filter(mail => {
+                    if (this.filterBy.isRead !== null && mail.isRead !== this.filterBy.isRead) return false
+                    return mail.removedAt !== null
+                })
+            }
         },
-        // updateFilterBy() {
-        //     if (!this.isShowUnRead) this.filterBy = 'all'
-        //     else this.filterBy = 'unread'
-        //     console.log(this.filterBy)
-        // },
     },
     components: {
         MailList,

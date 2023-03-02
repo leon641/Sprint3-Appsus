@@ -14,7 +14,8 @@ export default {
 
             <table class="mails-table main-message-mail">
             <tr class="isRead message"><td><span class="bold">Message: </span>{{ mail.body }}</td> 
-            <td><i class="fa-solid fa-trash" @click="deleteMail(mailId)"></i> |
+            <!-- <td><i class="fa-solid fa-trash" @click="moveToTrash(mailId)"></i> | -->
+            <td><router-link to="/mail"><i class="fa-solid fa-trash" @click="moveToTrash(mailId)"></i></router-link>|
             <i class="fa-solid fa-share-from-square" @click="replyMail(mailId)"></i> |
             <i class="fa-solid fa-up-right-from-square" @click="forwardMail(mailId)"></i></td>
         </tr>
@@ -42,9 +43,9 @@ export default {
         moveToTrash() {
             if (this.mail.removedAt) this.deleteMail(this.mail.id)
             else {
-                mailService.query()
-                    .then(mail => mail.id === this.mail.id)
-                    .then(mail => mail.removedAt = new Date())
+                this.mail.removedAt = new Date()
+                mailService.save(this.mail)
+                console.log(this.mail)
             }
         },
         deleteMail(mailId) {

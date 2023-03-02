@@ -15,7 +15,7 @@ export default {
             </div>
                <table class="mails-table">
                     <thead><td>
-                    <li @click="setFilterBy('unread')" class="fa-solid fa-filter"></li> | 
+                    <li @click="updateUnread" class="fa-solid fa-filter"></li> | 
                     <li @click="WriteNewMail" class="fa-solid fa-pen-to-square"></li> 
                     </td><td></td><td></td><td></td></thead>
                     <tbody v-for="mail in mails" :key="mail.id">
@@ -40,12 +40,12 @@ export default {
         setFilterBy(filterBy) {
             this.$emit('filter', filterBy)
         },
+        updateUnread() {
+            this.$emit('updateUnread')
+        },
         WriteNewMail() {
             this.$emit('WriteNewMail')
         },
-        // isShowUnRead() {
-        //     this.$emit('isShowUnRead')
-        // },
     },
     components: {
         MailPreview,
