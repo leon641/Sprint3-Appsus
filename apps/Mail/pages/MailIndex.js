@@ -1,4 +1,3 @@
-import { mailService } from '../services/mail.service.js'
 import MailList from '../cmps/MailList.js'
 
 export default {

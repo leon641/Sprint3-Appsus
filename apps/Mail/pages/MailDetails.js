@@ -1,7 +1,9 @@
+import MailList from '../cmps/MailList.js'
 import { mailService } from '../services/mail.service.js'
 export default {
     template: `
     <section class="email-box grid details-box"> 
+        <router-link to="/mail" class="back">Back</router-link>
         <table class="mails-table">
             <thead><td>From</td><td>To</td><td>Date</td></thead>
             <tbody> <tr class="isRead">
@@ -20,7 +22,6 @@ export default {
             <i class="fa-solid fa-up-right-from-square" @click="forwardMail(mailId)"></i></td>
         </tr>
     </table>
-
     </section>
     `,
     created() {
@@ -53,5 +54,8 @@ export default {
             console.log('reply')
             this.$emit('replyMail', mailId)
         },
+    },
+    components: {
+        MailList,
     },
 }
