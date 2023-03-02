@@ -22,8 +22,10 @@ const gNotes =  [{
   createdAt: new Date().toLocaleString(),
   isPinned: false,
   info: {
-    url: 'http://some-img/me',
+    // url: 'http://some-img/me',
+    
     title: 'Bobi and Me',
+    txt: 'Fullstack Me Baby!',
   },
   style: {
     backgroundColor: '#00d',

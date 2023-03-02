@@ -1,14 +1,16 @@
 .note-list ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    columns: 4 160px;
     gap: 10px;
 
     padding: 10px;
     list-style-type: none;
 }
 .note-list ul li{
-    padding: 10px;
+    break-inside: avoid;
+  margin-top: 5px;
+    padding: 5px;
     background-color: lightblue;
+    border: 2px solid black;
 }
 
 .icon{

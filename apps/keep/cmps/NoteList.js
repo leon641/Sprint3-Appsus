@@ -6,7 +6,7 @@ export default {
   template: `
         <section class="note-list">
             <ul>
-                <li v-for="note in notes" :key="note.id">
+                <li class="note-card" v-for="note in notes" :key="note.id">
                     <NotePreview :note="note"/>
                     <span class="icon" @click="remove(note.id)">🗑️</span>
                     <span class="icon" @click="edit(note.id)">📝</span>
