@@ -23,7 +23,6 @@ body {
 .email-box .toolbar li {
     margin-block-start: 1em;
     margin-inline-end: 1em;
-    list-style: none;
 }
 
 .fa-solid {

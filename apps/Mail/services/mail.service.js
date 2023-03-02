@@ -5,6 +5,11 @@ import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
+const loggedInUser = {
+    email: 'user@appsus.com',
+    fullName: 'Mahatma Appsus'
+}
+
 _createMails()
 
 export const mailService = {
@@ -14,6 +19,7 @@ export const mailService = {
     save,
     getEmptyMail,
     addReview,
+    getUser,
 }
 
 function query(filterBy = {}) {
@@ -28,6 +34,10 @@ function query(filterBy = {}) {
     //     }
     //     return mails
     // })
+}
+
+function getUser() {
+    return loggedInUser
 }
 
 function get(mailId) {
@@ -90,6 +100,15 @@ function _createMails() {
             removedAt: null,
             from: 'AliExpress@momo.com',
             to: 'user@appsus.com'
+        }, {
+            id: 'e104',
+            subject: 'Hello',
+            body: 'I need help with my order please.',
+            isRead: false,
+            sentAt: 155113392657,
+            removedAt: null,
+            from: 'user@appsus.com',
+            to: 'AliExpress@momo.com'
         }]
         utilService.saveToStorage(MAIL_KEY, mails)
     }

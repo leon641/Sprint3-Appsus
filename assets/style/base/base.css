@@ -50,3 +50,7 @@ button {
   outline: 1px solid gold
 }
 
+li {
+  list-style: none;
+  cursor: pointer;
+}

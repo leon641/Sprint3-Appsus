@@ -2,18 +2,20 @@ import { mailService } from '../services/mail.service.js'
 import MailPreview from '../cmps/MailPreview.js'
 
 export default {
+    props: ['mails'],
     template: `
         <section class="email-box grid"> 
-            <div class="toolbar flex">
+            <div class="filter toolbar flex">
                 <ul>
-	            <li><a href="#">All</a></li>
-	            <li><a href="#">Inbox</a></li>
-	            <li><a href="#">Send</a></li>
-	            <li><a href="#">Draft</a></li>
+                    <li @click="setFilterBy('all')">All</li>
+                    <li @click="setFilterBy('inbox')">Inbox</li>
+                    <li @click="setFilterBy('send')">Send</li>
+                    <li @click="setFilterBy('draft')">Draft</li>
+                    <li @click="setFilterBy('garbage')">Garbage</li>
                 </ul>
             </div>
                <table class="mails-table">
-                    <thead><td></td><td></td><td></td><td></td></thead>
+                    <thead><td><li>UnRead</li></td><td></td><td></td><td></td></thead>
                     <tbody v-for="mail in mails" :key="mail.from">
                         <MailPreview :mail="mail"
                         @deleteMail="deleteMail"
@@ -23,29 +25,19 @@ export default {
                 </table>
         </section>
     `,
-    created() {
-        this.updateMails()
-    },
-    data() {
-        return {
-            mails: '',
-        }
-    },
     methods: {
-        updateMails() {
-            mailService.query()
-                .then(mails => this.mails = mails)
-        },
         deleteMail(mailId) {
-            mailService.remove(mailId)
-                .then(mails => this.mails = mails)
+            this.$emit('deleteMail', mailId)
         },
         forwardMail(mailId) {
-            console.log('forward')
+            this.$emit('filter', filterBy)
         },
         replyMail(mailId) {
-            console.log('reply')
+            this.$emit('filter', filterBy)
         },
+        setFilterBy(filterBy) {
+            this.$emit('filter', filterBy)
+        }
     },
     components: {
         MailPreview,
