@@ -14,7 +14,6 @@ export default {
             </form>
             <NoteList 
             @remove="removeNote" 
-            @upload="loadImg" 
             :notes="notes"/>   
 </section>    
     `,
@@ -48,9 +47,7 @@ export default {
         this.notes.push(note)
       })
     },
-    loadImg() {
-      noteService.loadImageFromInput()
-    }
+   
   },
   components: {
     NoteList,
