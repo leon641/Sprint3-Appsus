@@ -10,7 +10,7 @@ export default {
             :mails="filteredMails" 
             v-if="mails"
             @WriteNewMail="openCloseMsgModal"
-            @moveToTrash="moveToTrash"
+            @moveToGarbage="moveToGarbage"
             @forwardMail="forwardMail"
             @replyMail="replyMail"
             />
@@ -28,7 +28,6 @@ export default {
             <tr><td><textarea v-model="newMsg.msg" rows="30" cols="50" placeholder="Your message..."></textarea></td></tr>
             <tr><td @click="sendMsg">Send</td></tr>
          </tbody>
-        
     </section>
     `,
     created() {
@@ -64,14 +63,14 @@ export default {
             else if (this.filterBy.isRead === false) this.filterBy.isRead = true
             else this.filterBy.isRead = null
         },
-        moveToTrash(mailId) {
+        moveToGarbage(mailId) {
             const idx = this.mails.findIndex(mail => mail.id === mailId)
             if (this.mails[idx].removedAt) this.deleteMail(mailId)
             else {
-                this.mails[idx].removedAt = new Date()
+                this.mails[idx].removedAt = Date.now()
                 mailService.get(mailId)
                     .then(mail => {
-                        mail.removedAt = new Date()
+                        mail.removedAt = Date.now()
                         mailService.save(mail)
                     })
             }
@@ -82,10 +81,17 @@ export default {
             mailService.remove(mailId)
         },
         forwardMail(mailId) {
-            console.log('forward')
+            mailService.get(mailId)
+                .then(mail => {
+                    this.newMsg.subject = mail.subject
+                    this.newMsg.msg = mail.body
+                })
+            this.openCloseMsgModal()
         },
         replyMail(mailId) {
-            console.log('reply')
+            mailService.get(mailId)
+                .then(mail => this.newMsg.target = mail.from)
+            this.openCloseMsgModal()
         },
         openCloseMsgModal() {
             this.isCreateMail = !this.isCreateMail
@@ -94,7 +100,7 @@ export default {
             let NewMail = mailService.getEmptyMail()
             NewMail.subject = this.newMsg.subject
             NewMail.body = this.newMsg.msg
-            NewMail.sentAt = new Date()
+            NewMail.sentAt = Date.now()
             NewMail.to = this.newMsg.target
 
             mailService.save(NewMail)
@@ -116,12 +122,14 @@ export default {
             if (this.filterBy.type === 'inbox') {
                 return this.mails.filter(mail => {
                     if (this.filterBy.isRead !== null && mail.isRead !== this.filterBy.isRead) return false
+                    if (mail.removedAt) return false
                     return mail.to === mailService.getUser().email
                 })
             }
             if (this.filterBy.type === 'send') {
                 return this.mails.filter(mail => {
                     if (this.filterBy.isRead !== null && mail.isRead !== this.filterBy.isRead) return false
+                    if (mail.removedAt) return false
                     return mail.from === mailService.getUser().email
                 })
             }

@@ -50,7 +50,7 @@ function getEmptyMail() {
     return {
         subject: '',
         body: '',
-        isRead: false,
+        isRead: true,
         sentAt: null,
         removedAt: null,
         from: loggedInUser.email,
@@ -61,43 +61,80 @@ function getEmptyMail() {
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
-        mails = [{
-            id: 'e101',
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
-            isRead: false,
-            sentAt: 1551133930594,
-            removedAt: null,
-            from: 'momo@momo.com',
-            to: 'user@appsus.com'
-        }, {
-            id: 'e102',
-            subject: 'How are you?',
-            body: 'I hope i will see you next week',
-            isRead: false,
-            sentAt: 1551133930587,
-            removedAt: null,
-            from: 'momo@momo.com',
-            to: 'user@appsus.com'
-        }, {
-            id: 'e103',
-            subject: 'Hi user!',
-            body: 'New stuff in sale in our shop!',
-            isRead: false,
-            sentAt: 1551133930657,
-            removedAt: null,
-            from: 'AliExpress@momo.com',
-            to: 'user@appsus.com'
-        }, {
-            id: 'e104',
-            subject: 'Hello',
-            body: 'I need help with my order please.',
-            isRead: true,
-            sentAt: 155113392657,
-            removedAt: null,
-            from: 'user@appsus.com',
-            to: 'AliExpress@momo.com'
-        }]
+        mails = [
+            {
+                id: 'e101',
+                subject: 'Miss you!',
+                body: 'Would love to catch up sometimes',
+                isRead: true,
+                sentAt: 1676841611900,
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+            }, {
+                id: 'e102',
+                subject: 'How are you?',
+                body: 'I hope i will see you next week',
+                isRead: false,
+                sentAt: 1627841611900,
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+            }, {
+                id: 'e103',
+                subject: 'Hi user!',
+                body: 'New stuff in sale in our shop!',
+                isRead: false,
+                sentAt: 1377841611900,
+                removedAt: null,
+                from: 'AliExpress',
+                to: 'user@appsus.com'
+            }, {
+                id: 'e104',
+                subject: 'Hello',
+                body: 'I need help with my order please.',
+                isRead: true,
+                sentAt: 1677841811900,
+                removedAt: null,
+                from: 'user@appsus.com',
+                to: 'AliExpress@momo.com'
+            }, {
+                id: 'e105',
+                subject: 'hi!',
+                body: 'I am so exiting for our vacation',
+                isRead: true,
+                sentAt: 1676841341900,
+                removedAt: null,
+                from: 'Best friend',
+                to: 'user@appsus.com'
+            }, {
+                id: 'e106',
+                subject: 'Hi user!',
+                body: 'We miss you...',
+                isRead: true,
+                sentAt: 1357841611900,
+                removedAt: null,
+                from: 'Twitter',
+                to: 'user@appsus.com'
+            }, {
+                id: 'e107',
+                subject: 'About order: 194678830',
+                body: 'I need to cancel my order please.',
+                isRead: true,
+                sentAt: 1677841611900,
+                removedAt: null,
+                from: 'user@appsus.com',
+                to: 'AliExpress@momo.com'
+            }, {
+                id: 'e108',
+                subject: 'Hi user',
+                body: 'Your order in the way!',
+                isRead: true,
+                sentAt: 1524841911110,
+                removedAt: null,
+                from: 'Stuff shop',
+                to: 'user@appsus.com'
+            },]
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }

@@ -20,7 +20,7 @@ export default {
                     </td><td></td><td></td><td></td></thead>
                     <tbody v-for="mail in mails" :key="mail.id">
                         <MailPreview :mail="mail"
-                        @moveToTrash="moveToTrash"
+                        @moveToGarbage="moveToGarbage"
                         @forwardMail="forwardMail"
                         @replyMail="replyMail"/>
                     </tbody>
@@ -28,14 +28,14 @@ export default {
         </section>
     `,
     methods: {
-        moveToTrash(mailId) {
-            this.$emit('moveToTrash', mailId)
+        moveToGarbage(mailId) {
+            this.$emit('moveToGarbage', mailId)
         },
         forwardMail(mailId) {
-            this.$emit('filter', filterBy)
+            this.$emit('forwardMail', mailId)
         },
         replyMail(mailId) {
-            this.$emit('filter', filterBy)
+            this.$emit('replyMail', mailId)
         },
         setFilterBy(filterBy) {
             this.$emit('filter', filterBy)
