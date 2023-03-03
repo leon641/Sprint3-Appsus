@@ -55,8 +55,8 @@ const gNotes =  [
     backgroundColor: '#00d',
   },
   info: {
-    title: 'Soccer game',
-    txt: 'Going to a soccer game with inon',
+    title: 'Think positive',
+    txt: 'Dont compare yourself with anyone else. Because you have potential inside you that no one else on the planet has.',
   },
 },
 {
