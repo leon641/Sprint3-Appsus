@@ -64,6 +64,25 @@ function _createMails() {
         mails = [
             {
                 id: 'e101',
+                subject: 'I am sorry!',
+                body: 'Please talk with me...',
+                isRead: false,
+                sentAt: Date.now() - (1000 * 60 * 60 * 23),
+                removedAt: null,
+                from: 'Sarah',
+                to: 'user@appsus.com'
+            }, {
+                id: 'e102',
+                subject: 'You get the job!',
+                body: 'Please Enter this mail...',
+                isRead: false,
+                sentAt: Date.now() - (1000 * 60 * 60 * 30),
+                removedAt: null,
+                from: 'IBM',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e103',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: true,
@@ -72,25 +91,25 @@ function _createMails() {
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
             }, {
-                id: 'e102',
+                id: 'e104',
                 subject: 'How are you?',
                 body: 'I hope i will see you next week',
-                isRead: false,
+                isRead: true,
                 sentAt: 1627841611900,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
             }, {
-                id: 'e103',
+                id: 'e105',
                 subject: 'Hi user!',
-                body: 'New stuff in sale in our shop!',
+                body: 'New stuff on sale in our shop!',
                 isRead: false,
                 sentAt: 1377841611900,
                 removedAt: null,
                 from: 'AliExpress',
                 to: 'user@appsus.com'
             }, {
-                id: 'e104',
+                id: 'e106',
                 subject: 'Hello',
                 body: 'I need help with my order please.',
                 isRead: true,
@@ -99,7 +118,7 @@ function _createMails() {
                 from: 'user@appsus.com',
                 to: 'AliExpress@momo.com'
             }, {
-                id: 'e105',
+                id: 'e107',
                 subject: 'hi!',
                 body: 'I am so exiting for our vacation',
                 isRead: true,
@@ -108,7 +127,7 @@ function _createMails() {
                 from: 'Best friend',
                 to: 'user@appsus.com'
             }, {
-                id: 'e106',
+                id: 'e108',
                 subject: 'Hi user!',
                 body: 'We miss you...',
                 isRead: true,
@@ -117,7 +136,7 @@ function _createMails() {
                 from: 'Twitter',
                 to: 'user@appsus.com'
             }, {
-                id: 'e107',
+                id: 'e109',
                 subject: 'About order: 194678830',
                 body: 'I need to cancel my order please.',
                 isRead: true,
@@ -126,15 +145,16 @@ function _createMails() {
                 from: 'user@appsus.com',
                 to: 'AliExpress@momo.com'
             }, {
-                id: 'e108',
+                id: 'e110',
                 subject: 'Hi user',
                 body: 'Your order in the way!',
                 isRead: true,
-                sentAt: 1524841911110,
+                sentAt: 1524851911110,
                 removedAt: null,
                 from: 'Stuff shop',
                 to: 'user@appsus.com'
-            },]
+            },
+        ]
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }

@@ -12,6 +12,9 @@ export default {
                 <td>{{ sentAt }}</td>
             </tr>
             `,
+    created() {
+        this.showTimeMsg()
+    },
     data() {
         return {
             sentAt: new Intl.DateTimeFormat('en-GB',
@@ -27,6 +30,14 @@ export default {
         },
         replyMail(mailId) {
             this.$emit('replyMail', mailId)
+        },
+        showTimeMsg() {
+            let diff = Date.now() - this.mail.sentAt
+            if (diff < 1000 * 60) this.sentAt = 'Just now'
+            else if (diff < 1000 * 60 * 60) this.sentAt = `${Math.floor(diff / 1000 / 60)} minuets ago`
+            else if (diff < 1000 * 60 * 61) this.sentAt = `One hour ago`
+            else if (diff < 1000 * 60 * 60 * 24) this.sentAt = `Today at ${new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(this.mail.sentAt)}`
+            else if (diff < 1000 * 60 * 60 * 48) this.sentAt = `Yesterday at ${new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(this.mail.sentAt)}`
         },
     },
 }
