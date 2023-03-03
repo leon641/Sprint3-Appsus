@@ -53,3 +53,14 @@ li {
   list-style: none;
   cursor: pointer;
 }
+
+.fa-solid:hover {
+  animation: gro ease-out infinite;
+  animation-duration: 1s;
+}
+
+@keyframes gro {
+  to {
+    scale: 1.3;
+  }
+}
