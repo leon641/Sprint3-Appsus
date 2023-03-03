@@ -6,6 +6,7 @@ export default {
         <section class="email-box grid"> 
             <i @click="isShowTools = !isShowTools" class="fa-solid fa-caret-right"></i>
             <div v-if="isShowTools" class="filter toolbar flex">
+            <i @click="isShowTools = !isShowTools" class="fa-solid fa-caret-left"></i>
                 <ul>
                     <li @click="setFilterBy('all')">All</li>
                     <li @click="setFilterBy('inbox')">Inbox</li>

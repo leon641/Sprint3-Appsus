@@ -6,6 +6,10 @@
     padding: 10px;
 }
 
+.email-box tr:hover {
+    background-color: var(--clr8);
+}
+
 .email-box td {
     padding: 10px;
 }
@@ -25,6 +29,8 @@
 .email-box .toolbar li {
     margin-block-start: 1em;
     margin-inline-end: 1em;
+    border-top-right-radius: 555px;
+    border-bottom-right-radius: 555px;
 }
 
 .email-box .fa-solid {
@@ -35,4 +41,15 @@
     position: absolute;
     top: 130px;
     left: 5px;
+    font-size: x-large;
+}
+
+.email-box .fa-caret-left {
+    position: relative;
+    left: 10px;
+    font-size: x-large;
+}
+
+.email-box .toolbar li:hover {
+    background-color: var(--clr3);
 }
