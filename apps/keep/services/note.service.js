@@ -19,7 +19,7 @@ const gNotes =  [
   },
 },
 {
-  id: 'n103',
+  id: 'n102',
   createdAt: new Date().toLocaleString(),
   type: 'todos',
   isPinned: false,
@@ -33,7 +33,7 @@ const gNotes =  [
   ],
 },
 {
-  id: 'n102',
+  id: 'n103',
   type: 'img',
   createdAt: new Date().toLocaleString(),
   isPinned: false,
@@ -47,7 +47,7 @@ const gNotes =  [
   },
 },
 {
-  id: 'n105',
+  id: 'n104',
   type: 'txt',
   isPinned: true,
   createdAt: new Date().toLocaleString(),
@@ -60,7 +60,7 @@ const gNotes =  [
   },
 },
 {
-  id: 'n102',
+  id: 'n105',
   type: 'img',
   createdAt: new Date().toLocaleString(),
   isPinned: false,
@@ -75,7 +75,7 @@ const gNotes =  [
 },
 
 {
-  id: 'n105',
+  id: 'n106',
   type: 'txt',
   isPinned: true,
   createdAt: new Date().toLocaleString(),
@@ -89,7 +89,7 @@ const gNotes =  [
   },
 },
 {
-  id: 'n102',
+  id: 'n107',
   type: 'img',
   createdAt: new Date().toLocaleString(),
   isPinned: false,
@@ -103,7 +103,7 @@ const gNotes =  [
   },
 },
 {
-  id: 'n105',
+  id: 'n108',
   type: 'txt',
   isPinned: true,
   createdAt: new Date().toLocaleString(),
@@ -116,7 +116,7 @@ const gNotes =  [
   },
 },
 {
-  id: 'n102',
+  id: 'n109',
   type: 'img',
   createdAt: new Date().toLocaleString(),
   isPinned: false,
