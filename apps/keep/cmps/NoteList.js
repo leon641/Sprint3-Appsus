@@ -7,19 +7,16 @@ export default {
   props: ['notes'],
 
   template: `
-        <section class="note-list">
+        <section class="note-list" >
             <ul>
                 <li class="note-card" v-for="note in notes" :key="note.id">
-                    <NoteTxt :note="note"/>
+                    <NoteTxt :note="note" />
                     <span class="icon" @click="remove(note.id)">🗑️</span>
-                    <span class="icon" @click="edit(note.id)">📝</span>
                     <input class="color" type="color" >
                     <label>
                     <span class="icon" @click="OnColorChange(note.id)">🎨</span>
                     <input type="color">
                     </label>
-                    <span class="icon" @click="onImgInput(note.id)">🖼️</span>
-
                 </li>
             </ul>
         </section>

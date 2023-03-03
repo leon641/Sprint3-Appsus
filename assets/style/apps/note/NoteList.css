@@ -1,5 +1,5 @@
 .note-list ul {
-    columns: 7 150px;
+    columns: 6 150px;
     gap: 10px;
 
     padding: 10px;
@@ -9,7 +9,7 @@
     break-inside: avoid;
   margin-top: 5px;
     padding: 5px;
-    background-color: lightblue;
+    background-color: #CB8589;
     border: 2px solid black;
 }
 

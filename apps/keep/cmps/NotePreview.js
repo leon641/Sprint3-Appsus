@@ -4,17 +4,15 @@ import NoteImg from './NoteImg.js'
 export default {
   props: ['note'],
   template: `
-    <div>
+    <div >
     <component 
     :is="note.type"
     :info="note.info" />
     
-  
-
     </div>
     `,
-    components : {
-        txt:NoteTxt,
-        img:NoteImg
-    }
+  components: {
+    txt: NoteTxt,
+    img: NoteImg,
+  },
 }

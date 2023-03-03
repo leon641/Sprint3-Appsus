@@ -1,5 +1,6 @@
 form {
     display: flex;
+    background-color: #D7B29D;
 }
 
 input {
@@ -9,10 +10,12 @@ input {
     font-weight: 600;
     font-size: 24px;
     border-radius: 20px;
+    background-color: #E8D2AE;
 }
 
 .add-note{
     border-radius: 10px;
+    background-color: #DDE8B9;
     color: black;
 }
 
