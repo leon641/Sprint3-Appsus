@@ -83,8 +83,9 @@ const gNotes =  [
     backgroundColor: '#CB8589',
   },
   info: {
-    title: 'Soccer game',
-    txt: 'Going to a soccer game with inon',
+    title: 'EuroTrip',
+    txt: 'Start in amsterdam!!!',
+    url: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
   },
 },
 {
@@ -96,6 +97,33 @@ const gNotes =  [
     url: 'https://images.unsplash.com/photo-1592609931095-54a2168ae893?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     title: 'Coding',
     txt: 'improve your skills in vue! ',
+  },
+  style: {
+    backgroundColor: '#796465',
+  },
+},
+{
+  id: 'n105',
+  type: 'txt',
+  isPinned: true,
+  createdAt: new Date().toLocaleString(),
+  style: {
+    backgroundColor: '#CB8589',
+  },
+  info: {
+    title: 'Reminder',
+    txt: 'Dont scroll past life. Life is this very moment.',
+  },
+},
+{
+  id: 'n102',
+  type: 'img',
+  createdAt: new Date().toLocaleString(),
+  isPinned: false,
+  info: {
+    url: 'https://images.unsplash.com/photo-1522075782449-e45a34f1ddfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    title: 'Good vibes',
+    txt: 'You attract the energy that you give off. Spread good vibes. Think positively. Enjoy life.',
   },
   style: {
     backgroundColor: '#796465',

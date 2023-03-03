@@ -1,6 +1,6 @@
 form {
     display: flex;
-    background-color: #D7B29D;
+    background-color: #F1E4E8;
 }
 
 input {
@@ -10,17 +10,17 @@ input {
     font-weight: 600;
     font-size: 24px;
     border-radius: 20px;
-    background-color: #E8D2AE;
+    background-color: #E2DCDE;
 }
 
 .add-note{
     border-radius: 10px;
-    background-color: #DDE8B9;
+    background-color: #ecc4c5;
     color: black;
 }
 
 .add-note:hover {
-    background-color: lightgreen;
+    background-color: rgb(200, 245, 200);
 }
 
 .txt-box {
