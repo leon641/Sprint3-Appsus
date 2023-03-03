@@ -10,11 +10,29 @@
     padding: 10px;
 }
 
+.email-box .toolbar {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    background-color: var(--clr5);
+    height: 87%;
+}
+
+.email-box .toolbar ul {
+    margin-block-start: 1em;
+}
+
 .email-box .toolbar li {
     margin-block-start: 1em;
     margin-inline-end: 1em;
 }
 
-.fa-solid {
+.email-box .fa-solid {
     cursor: pointer;
+}
+
+.email-box .fa-caret-right {
+    position: absolute;
+    top: 130px;
+    left: 5px;
 }

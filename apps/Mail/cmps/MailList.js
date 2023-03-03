@@ -4,7 +4,8 @@ export default {
     props: ['mails'],
     template: `
         <section class="email-box grid"> 
-            <div class="filter toolbar flex">
+            <i @click="isShowTools = !isShowTools" class="fa-solid fa-caret-right"></i>
+            <div v-if="isShowTools" class="filter toolbar flex">
                 <ul>
                     <li @click="setFilterBy('all')">All</li>
                     <li @click="setFilterBy('inbox')">Inbox</li>
@@ -27,6 +28,11 @@ export default {
                 </table>
         </section>
     `,
+    data() {
+        return {
+            isShowTools: false,
+        }
+    },
     methods: {
         moveToGarbage(mailId) {
             this.$emit('moveToGarbage', mailId)
@@ -39,6 +45,7 @@ export default {
         },
         setFilterBy(filterBy) {
             this.$emit('filter', filterBy)
+            this.isShowTools = !this.isShowTools
         },
         updateUnread() {
             this.$emit('updateUnread')

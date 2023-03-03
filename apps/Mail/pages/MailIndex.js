@@ -128,7 +128,6 @@ export default {
             }
             if (this.filterBy.type === 'send') {
                 return this.mails.filter(mail => {
-                    if (this.filterBy.isRead !== null && mail.isRead !== this.filterBy.isRead) return false
                     if (mail.removedAt) return false
                     return mail.from === mailService.getUser().email
                 })
