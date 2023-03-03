@@ -15,7 +15,7 @@ export default {
             <table class="mails-table main-message-mail">
             <tr class="isRead message"><td>
             <span><router-link to="/mail"><i class="fa-solid fa-trash"  title="Garbage" @click="moveToGarbage(mailId)"></i></router-link>|
-            <i class="fa-solid fa-share-from-square"  title="Replay" @click="replyMail(mailId)"></i> |
+            <i class="fa-solid fa-share-from-square" title="Replay" @click="replyMail(mailId)"></i> |
             <i class="fa-solid fa-up-right-from-square" title="Forward" @click="forwardMail(mailId)"></i></span>
             <span class="bold"> Message: </span>{{ mail.body }} </td> 
             </tr></table>
