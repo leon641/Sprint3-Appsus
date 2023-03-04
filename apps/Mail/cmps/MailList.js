@@ -1,3 +1,4 @@
+import { mailService } from '../services/mail.service.js'
 import MailPreview1024 from '../cmps/MailPreview1024.js'
 import MailPreview720 from '../cmps/MailPreview720.js'
 import MailPreview0 from '../cmps/MailPreview0.js'
@@ -6,6 +7,7 @@ export default {
     props: ['mails'],
     template: `
         <section class="email-box grid"> 
+        <h5 v-if="unReadMailCount" class="unReadMailCount"><span>{{unReadMailCount}}</span> unread mail</h5>
             <i @click="isShowTools = !isShowTools" class="fa-solid fa-caret-right"></i>
             <div v-if="isShowTools" class="filter toolbar flex">
             <i @click="isShowTools = !isShowTools" class="fa-solid fa-caret-left"></i>
@@ -42,12 +44,16 @@ export default {
                 </table>
         </section>
     `,
+    created() {
+        this.updateUnReadMailCount()
+    },
     data() {
         return {
             isShowTools: false,
             isSmallScreen: false,
             isMediumScreen: false,
             isLargeScreen: false,
+            unReadMailCount: null,
         }
     },
     methods: {
@@ -70,6 +76,11 @@ export default {
         WriteNewMail() {
             this.$emit('WriteNewMail')
         },
+        updateUnReadMailCount() {
+            mailService.query()
+                .then(mails => mails.filter(mail => !mail.isRead))
+                .then(res => this.unReadMailCount = res.length)
+        }
     },
     computed: {
         large() {
