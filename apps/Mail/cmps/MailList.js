@@ -29,12 +29,12 @@ export default {
                         @forwardMail="forwardMail"
                         @replyMail="replyMail"/>
                         <MailPreview720 :mail="mail"
-                        v-if="medium"
+                        v-if="medium && !large"
                         @moveToGarbage="moveToGarbage"
                         @forwardMail="forwardMail"
                         @replyMail="replyMail"/>
                         <MailPreview0 :mail="mail"
-                        v-if="small"
+                        v-if="small && !medium && !large"
                         @moveToGarbage="moveToGarbage"
                         @forwardMail="forwardMail"
                         @replyMail="replyMail"/>

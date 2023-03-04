@@ -57,3 +57,7 @@
 .email-box .toolbar li:hover {
     background-color: var(--clr3);
 }
+
+.email-box .fa-solid {
+    animation: none;
+}
