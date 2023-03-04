@@ -17,3 +17,8 @@
     margin-top: 10px;
     border: none;
 }
+
+.new-mail-box .sendMsg,
+.new-mail-box .fa-xmark {
+    cursor: pointer;
+}

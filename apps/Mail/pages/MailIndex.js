@@ -25,8 +25,8 @@ export default {
         <br>
             <tr><td><textarea v-model="newMsg.subject" rows="1" cols="50" placeholder="Subject..."></textarea></td></tr>
         <br> 
-            <tr><td><textarea v-model="newMsg.msg" rows="30" cols="50" placeholder="Your message..."></textarea></td></tr>
-            <tr><td @click="sendMsg">Send</td></tr>
+            <tr><td><textarea v-model="newMsg.msg" rows="10" cols="50" placeholder="Your message..."></textarea></td></tr>
+            <tr><td class="sendMsg" @click="sendMsg">Send</td></tr>
          </tbody>
     </section>
     `,

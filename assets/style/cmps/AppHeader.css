@@ -4,7 +4,9 @@
   font-family: 'Edu VIC WA NT Beginner', cursive;
 }
 
-.app-header .fa-solid {
+.app-header .fa-solid,
+.apps .fa-solid {
+  cursor: pointer;
   animation: none;
 }
 
@@ -17,9 +19,3 @@
   background-color: var(--clr5);
   border-radius: 20px;
 }
-
-.apps .fa-solid {
-  animation: none;
-}
-
-/* @media(max-width: 720px) {} */
