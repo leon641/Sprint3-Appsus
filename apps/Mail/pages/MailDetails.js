@@ -8,7 +8,7 @@ export default {
             <tr class="isRead">
                     <td><span class="bold">From: </span>{{ mail.from }}</td>
                     <td><span class="bold">To: </span>{{mail.to }}</td>
-                    <td><span class="bold">Date: </span>{{ mail.sentAt }}</td>
+                    <td><span class="bold">Date: </span>{{ sentAt }}</td>
                 </tr>
         </table>
 
@@ -38,6 +38,7 @@ export default {
     created() {
         this.updateMail()
         this.updateUser()
+        this.showTimeMsg()
     },
     data() {
         return {
@@ -48,7 +49,9 @@ export default {
                 subject: '',
                 msg: '',
                 target: '',
-            }
+            },
+            sentAt: '',
+
         }
     },
     methods: {
@@ -98,6 +101,16 @@ export default {
             this.newMsg.subject = ''
             this.msg = ''
             this.newMsg.target = ''
+        },
+        showTimeMsg() {
+            this.sentAt = new Intl.DateTimeFormat('en-GB',
+                { dateStyle: 'short', timeStyle: 'short', timeZone: 'Israel' }).format(this.mail.sentAt)
+            let diff = Date.now() - this.mail.sentAt
+            if (diff < 1000 * 60) this.sentAt = 'Just now'
+            else if (diff < 1000 * 60 * 60) this.sentAt = `${Math.floor(diff / 1000 / 60)} minuets ago`
+            else if (diff < 1000 * 60 * 61) this.sentAt = `One hour ago`
+            else if (diff < 1000 * 60 * 60 * 24) this.sentAt = `Today at ${new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(this.mail.sentAt)}`
+            else if (diff < 1000 * 60 * 60 * 48) this.sentAt = `Yesterday at ${new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(this.mail.sentAt)}`
         },
     },
     components: {
