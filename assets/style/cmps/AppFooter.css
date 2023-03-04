@@ -1,10 +1,10 @@
 .app-footer {
+  display: flex;
   background-color: var(--clr5);
   color: var(--secondary-clr1);
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  text-align: center;
+  height: 5vh;
+  justify-content: center;
 }
 
 @media(max-width: 720px) {
