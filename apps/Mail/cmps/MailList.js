@@ -1,4 +1,6 @@
-import MailPreview from '../cmps/MailPreview.js'
+import MailPreview1024 from '../cmps/MailPreview1024.js'
+import MailPreview720 from '../cmps/MailPreview720.js'
+import MailPreview0 from '../cmps/MailPreview0.js'
 
 export default {
     props: ['mails'],
@@ -19,9 +21,20 @@ export default {
                     <thead><td>
                     <li @click="updateUnread" class="fa-solid fa-filter"></li> | 
                     <li @click="WriteNewMail" class="fa-solid fa-pen-to-square"></li> 
-                    </td><td></td><td></td><td></td></thead>
+                    </td><td v-if="medium || large"></td><td v-if="medium || large"></td><td v-if="medium || large"></td></thead>
                     <tbody v-for="mail in mails" :key="mail.id">
-                        <MailPreview :mail="mail"
+                        <MailPreview1024 :mail="mail"
+                        v-if="large"
+                        @moveToGarbage="moveToGarbage"
+                        @forwardMail="forwardMail"
+                        @replyMail="replyMail"/>
+                        <MailPreview720 :mail="mail"
+                        v-if="medium"
+                        @moveToGarbage="moveToGarbage"
+                        @forwardMail="forwardMail"
+                        @replyMail="replyMail"/>
+                        <MailPreview0 :mail="mail"
+                        v-if="small"
                         @moveToGarbage="moveToGarbage"
                         @forwardMail="forwardMail"
                         @replyMail="replyMail"/>
@@ -32,6 +45,9 @@ export default {
     data() {
         return {
             isShowTools: false,
+            isSmallScreen: false,
+            isMediumScreen: false,
+            isLargeScreen: false,
         }
     },
     methods: {
@@ -55,7 +71,32 @@ export default {
             this.$emit('WriteNewMail')
         },
     },
+    computed: {
+        large() {
+            this.isLargeScreen = window.innerWidth >= 1024;
+            window.addEventListener('resize', () => {
+                this.isLargeScreen = window.innerWidth >= 1024;
+            })
+            return this.isLargeScreen
+        },
+        medium() {
+            this.isMediumScreen = window.innerWidth >= 720;
+            window.addEventListener('resize', () => {
+                this.isMediumScreen = window.innerWidth >= 720;
+            })
+            return this.isMediumScreen
+        },
+        small() {
+            this.isSmallScreen = window.innerWidth < 720;
+            window.addEventListener('resize', () => {
+                this.isSmallScreen = window.innerWidth < 720;
+            })
+            return this.isSmallScreen
+        },
+    },
     components: {
-        MailPreview,
+        MailPreview1024,
+        MailPreview720,
+        MailPreview0,
     }
 }

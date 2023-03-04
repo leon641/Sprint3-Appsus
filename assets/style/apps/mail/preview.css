@@ -5,3 +5,11 @@
 .isUnRead {
     font-weight: bold;
 }
+
+.showTimeOnSmartphone {
+    font-size: xx-small;
+}
+
+.showNameOnSmartphone {
+    font-size: small;
+}

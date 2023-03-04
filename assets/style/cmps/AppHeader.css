@@ -1,6 +1,7 @@
 .app-header {
   background-color: var(--clr5);
   padding: 1em;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
 }
 
 .app-header .fa-solid {
