@@ -14,7 +14,7 @@ export default {
                 <ul>
                     <li @click="setFilterBy('all')">All</li>
                     <li @click="setFilterBy('inbox')">Inbox</li>
-                    <li @click="setFilterBy('send')">Send</li>
+                    <li @click="setFilterBy('sent')">Send</li>
                     <li @click="setFilterBy('draft')">Draft</li>
                     <li @click="setFilterBy('Garbage')">Garbage</li>
                 </ul>
